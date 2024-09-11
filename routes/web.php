@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MateriaGradoController;
 use App\Http\Controllers\Admin\NotaFinalMateriaController;
 use App\Http\Controllers\Admin\PofesorController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Estudiante\AuthEstudianteController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,13 @@ Route::group(['prefix' => "profesor", 'middleware' => []], function () {
 });
 
 
+Route::post('/login-estudiante', [AuthEstudianteController::class, 'authenticate'])->name('estudiante.authenticate');
+
+Route::group(['prefix' => "estudiante", 'middleware' => []], function () {
+    Route::get('/inicio', [AuthEstudianteController::class, 'inicio'])->name('estudiante.inicio');
+    Route::get('/materias/{grado_id}', [AuthEstudianteController::class, 'getLibrosToGrado'])->name('estudiante.getLibrosToGrado');
+});
+
 
 Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']], function () {
 
@@ -92,7 +100,6 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::get('repotes/estudiante', 'allEstudentReport')->name('estu.allEstudentReport');
         Route::get('repotes/estudiante-grados', 'estudentToGrado')->name('estu.estudentToGrado');
         Route::get('repotes/estudiante-encargado', 'encargado')->name('estu.encargado');
-        
     });
 
     Route::controller(BoletinController::class)->prefix('boletines')->group(function () {

@@ -18,7 +18,7 @@
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">ADMINISTRACION</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">PROFESOR</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">ESTUDIANTE</a>
         </li>
 
     </ul>
@@ -51,7 +51,7 @@
                             @enderror
                         </div>
                         <div class="form-element form-submit">
-                            <button id="goLeft" class="btn btn-info mt-2" type="submit" >INICIAR SESION</button>
+                            <button id="goLeft" class="btn btn-info mt-2" type="submit">INICIAR SESION</button>
                         </div>
                     </form>
                 </div>
@@ -65,12 +65,12 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-3">
-                    <h2 class="text-center">LOGIN PROFESOR</h2>
-                    <form id="form-login" method="POST" action="{{ route('profe.authenticate') }}">
+                    <h2 class="text-center">ESTUDIANTE</h2>
+                    <form id="form-login" method="POST" action="{{ route('estudiante.authenticate') }}">
                         @csrf
                         <div class="form-element form-stack">
-                            <label for="email" class="form-label">CORREO</label>
-                            <input class="form-control" id="email" type="email" name="email">
+                            <label for="email" class="form-label">CUI</label>
+                            <input class="form-control" id="email" type="text" name="cui">
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -78,17 +78,8 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="form-element form-stack">
-                            <label for="password-signup" class="form-label">CONTRASENA</label>
-                            <input class="form-control" id="password-signup" type="password" name="password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
                         <div class="form-element form-submit">
-                            <button id="goLeft" class="btn btn-info mt-2" type="submit" >INICIAR SESION</button>
+                            <button id="goLeft" class="btn btn-info mt-2" type="submit">INICIAR SESION</button>
                         </div>
                     </form>
                 </div>

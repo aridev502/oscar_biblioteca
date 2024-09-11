@@ -20,8 +20,8 @@ class CreateNotaEstudientesTable extends Migration
             $table->foreign('estudiante_id')->references('id')->on('estudiantes');
 
             $table->bigInteger('nota_final_id')->unsigned();
-            $table->foreign('nota_final_id')->references('id')->on('nota_final_tarea');
-            
+            $table->foreign('nota_final_id')->references('id')->on('libros');
+
             $table->double('calificacion')->default(0);
 
             $table->timestamps();

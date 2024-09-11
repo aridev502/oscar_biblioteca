@@ -22,3 +22,18 @@ function getAllMateriasProfesor($profe_id, $grado_id)
       ->where('grado_id', $grado_id)
       ->get();
 }
+
+
+
+/**
+ * Devuelve todas las materias que se imparten en un grado en especifico
+ *
+ * @param int $grado_id El id del grado que se quiere obtener sus materias
+ *
+ * @return \Illuminate\Database\Eloquent\Collection
+ */
+function getAllCursorsToGrado($grado_id)
+{
+
+   return MateriaGrado::where('grado_id', $grado_id)->get();
+}
