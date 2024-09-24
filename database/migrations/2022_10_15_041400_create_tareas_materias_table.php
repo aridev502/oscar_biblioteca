@@ -13,7 +13,7 @@ class CreateTareasMateriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('nota_final_tarea', function (Blueprint $table) {
+        Schema::create('libros', function (Blueprint $table) {
             $table->id();
 
 
@@ -39,6 +39,6 @@ class CreateTareasMateriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tareas_materias');
+        Schema::dropIfExists('libros');
     }
 }
