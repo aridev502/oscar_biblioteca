@@ -1,151 +1,134 @@
 @extends('layouts.admin')
 
 
-@section('stylesss')
-<style>
-  body {
-    background: steelblue;
-  }
+@section('styles')
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
-  .card {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    cursor: default;
-    width: 200px;
-    height: 350px;
-    background: white;
-    border-radius: 15px;
-    text-align: center;
-    line-height: 350px;
-    font-size: 100px;
-    -webkit-animation: rotate 7s linear infinite;
-    -moz-animation: rotate 7s linear infinite;
-    animation: rotate 7s linear infinite;
-    margin: 0 auto;
-    position: relative;
-    top: 70px;
-  }
 
-  .ace1 {
-    position: relative;
-    font-size: 30px;
-    top: -340px;
-    left: -80px;
-    line-height: 20px;
-  }
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.15/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.15/index.global.min.js'></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth'
+    });
+    calendar.render();
+  });
+</script>
 
-  .ace_club1 {
-    position: relative;
-    left: -5px;
-    top: 5px;
-  }
 
-  .ace2 {
-    position: relative;
-    font-size: 30px;
-    top: 250px;
-    left: 155px;
-    line-height: 20px;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
 
-  .ace_club2 {
-    position: relative;
-    left: -5px;
-    top: 5px;
-  }
-
-  .wrapper {
-    -webkit-perspective: 25em;
-    -moz-perspective: 25em;
-    perspective: 25em;
-  }
-
-  @-webkit-keyframes rotate {
-    100% {
-      -webkit-transform: rotatey(360deg);
-    }
-  }
-
-  @-moz-keyframes rotate {
-    100% {
-      -moz-transform: rotatey(360deg);
-    }
-  }
-
-  @keyframes rotate {
-    100% {
-      transform: rotatey(360deg);
-    }
-  }
-</style>
 @endsection
 
 @section('content')
 
 
 
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col text-center">
-      <img src="{{asset('logos/logo.png')}}" class="img-fluid rounded-circle" alt="">
+      <img src="{{asset('logos/logo.png')}}" class="img-fluid rounded-circle" width="40%" alt="">
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="container">
-        <div class="card" data-label="In Progress">
-          <div class="card2" data-label="In Progress">
-            <div class="card__container">
-              <h1 class="card__header"> {{$estu}}</h1>
-              <p class="card__body">
-                ESTUDIANTES REGISTRADOS
-              </p>
+
+
+
+  <div class="grey-bg container-fluid">
+    <section id="minimal-statistics">
+      <div class="row">
+        <div class="col-12 mt-3 mb-1">
+          <h4 class="text-uppercase">RESUMEN DE SISTEMA</h4>
+          <!-- <p>Statistics on minimal cards.</p> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i class="icon-pencil primary font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>{{$user}}</h3>
+                    <span> MAESTROS REGISTRADOS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i class="icon-speech warning font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>{{$estu}}</h3>
+                    <span>ESTUDIANTES REGISTRADOS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i class="icon-graph success font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>{{$profe}}</h3>
+                    <span>PROFESORES REGISTRADOS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i class="icon-pointer danger font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>{{$materias}}</h3>
+                    <span>MATERIAS REGISTRADAS</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-    </div>
-    <div class="col-md-4">
-      <div class="container">
-        <div class="card" data-label="In Progress">
-          <div class="card2" data-label="In Progress">
-            <div class="card__container">
-              <h1 class="card__header">
-                {{$profe}}
-              </h1>
-              <p class="card__body">
-                PROFESORES REGISTRADOS
-              </p>
-            </div>
-          </div>
-        </div>
+
+      <div class="col-12">
+        <div id='calendar'></div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="container">
-        <div class="card" data-label="In Progress">
-          <div class="card2" data-label="In Progress">
-            <div class="card__container">
-              <h1 class="card__header">
-                {{$user}}
-              </h1>
-              <p class="card__body">
-                MAESTROS REGISTRADOS
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </div>
-</div> -->
+
+
+</div>
 
 
 @endsection
