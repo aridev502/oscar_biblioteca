@@ -20,9 +20,9 @@
                   <div class="col-3">
                      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <button class="nav-link active" id="v-pills-home-tab" data-toggle="pill" data-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">ACTUALIZAR</button>
-                        <button class="nav-link" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">ASIGNAR A BLIBLIOTECA</button>
-                        <!-- 
-                        <button class="nav-link" id="v-pills-NOTASASIG-tab" data-toggle="pill" data-target="#v-pills-NOTASASIG" type="button" role="tab" aria-controls="v-pills-NOTASASIG" aria-selected="false">NOTAS FINALES</button> -->
+                        <button class="nav-link" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">ASIGNAR TAREAS</button>
+
+                        <button class="nav-link" id="v-pills-NOTASASIG-tab" data-toggle="pill" data-target="#v-pills-NOTASASIG" type="button" role="tab" aria-controls="v-pills-NOTASASIG" aria-selected="false">TAREAS REGISTRADAS</button>
 
 
 

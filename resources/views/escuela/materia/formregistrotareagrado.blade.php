@@ -7,28 +7,42 @@
    <input type="hidden" value="{{$data->id}}" name="materia_id">
    <input type="hidden" value="{{$data->grado_id}}" name="grado_id">
 
-   <div class="form-group">
-      <label for="">LIBRO / MATERIAL DE APOYO</label>
-      <input type="file" class="form-control-file" name="bloque">
-   </div>
-
 
    <div class="form-group">
-      <label for="">NOMBRE</label>
+      <label for="">NOMBRE DE TAREA</label>
       <input type="text" class="form-control" name="nombre">
    </div>
 
-   <input type="text" class="form-control" name="valor" hidden value="0">
 
-   <input type="date" class="form-control" name="entrega" hidden value="{{date('Y-m-d')}}">
+
+   <div class="form-group">
+      <label for="">NUMERO DE BIMESTRE</label>
+      <input type="number" class="form-control" name="bloque">
+   </div>
+
+
+
+
+   <div class="form-group">
+
+      <label for="">CALIFICACION DE TAREA</label>
+      <input type="text" class="form-control" name="valor" value="0">
+   </div>
+
+
+   <div class="form-group">
+
+      <label for="">FECHA DE ENTREGA</label>
+      <input type="date" class="form-control" name="entrega" value="{{date('Y-m-d')}}">
+   </div>
 
 
 
    <div class="form-group">
       <label for="">ESTADO</label>
       <select class="form-control" name="estado">
-         <option value="activo">activo</option>
-         <option value="inactivo">inactivo</option>
+         <option value="ACTIVO">ACTIVO</option>
+         <option value="INACTIVO">INACTIVO</option>
       </select>
    </div>
 
