@@ -13,6 +13,7 @@
                <form action="{{route('grado.save')}}" method="post">
                   @csrf
 
+                  <br>
                   <div class="form-group">
                      <label for="">NOMBRE</label>
                      <input type="text" class="form-control" name="nombre">

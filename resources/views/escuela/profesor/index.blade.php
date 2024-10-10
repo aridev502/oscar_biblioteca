@@ -34,11 +34,15 @@
                         <td>{{$pro->email}}</td>
                         <td>
 
-                           <?php  $array= json_decode($pro->cursos, true); ?>
+                           @if (isset($pro->cursos))
+                           <?php $array = json_decode($pro->cursos, true); ?>
 
                            @foreach ($array as $curso)
-                              <span class="badge badge-info">{{$curso['value']}}</span>
+                           <span class="badge badge-info">{{$curso['value']}}</span>
                            @endforeach
+                           @else
+                           <span class="badge badge-warning">NO TIENE CURSOS</span>
+                           @endif
 
                         </td>
                         <td>{{$pro->created_at}}</td>

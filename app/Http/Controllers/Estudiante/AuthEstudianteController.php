@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Estudiante;
 
 use App\Http\Controllers\Controller;
 use App\Models\Estudiante;
+use App\Models\Grado;
 use App\Models\MateriaGrado;
 use App\Models\NotaFinalMateria;
 use Illuminate\Http\Request;
@@ -35,7 +36,12 @@ class AuthEstudianteController extends Controller
     function inicio()
     {
 
-        return view('estudiante.inicio');
+        $grado = Grado::find(session('estudiante')->grado_id);
+
+        $cursos = MateriaGrado::where('grado_id', $grado->id)->get();
+
+
+        return view('estudiante.inicio', compact('grado', 'cursos'));
     }
 
     /**

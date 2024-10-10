@@ -18,6 +18,7 @@
 
                <form action="{{route('profe.save')}}" method="post">
                   @csrf
+                  <br>
 
                   <div class="form-group">
                      <label for="">NOMBRE</label>
@@ -78,8 +79,6 @@
    })
 
    tagify.on('change', null)
-
-
 </script>
 
 @endsection

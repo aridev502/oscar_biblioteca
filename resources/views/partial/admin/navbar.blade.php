@@ -31,19 +31,18 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-            <li class="nav-item">
+            <li class="nav-item mt-2">
                <a href="{{route('home')}}" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                     CASA
-                     <i class="right fas fa-angle-left"></i>
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                  CASA
+
                   </p>
                </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item mt-2">
                <a href="{{route('estu.inscribir')}}" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="fa fa-user-circle" aria-hidden="true"></i>
                   <p>
                      INSCRIBIR
                      <i class="right fas fa-angle-left"></i>
@@ -53,9 +52,9 @@
 
 
 
-            <li class="nav-item">
+            <li class="nav-item mt-2">
                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="fa fa-user-o" aria-hidden="true"></i>
                   <p>
                      PROFESORES
                      <i class="right fas fa-angle-left"></i>
@@ -90,9 +89,9 @@
             </li>
 
 
-            <li class="nav-item">
+            <li class="nav-item mt-2">
                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="fa fa-users" aria-hidden="true"></i>
                   <p>
                      ESTUDIANTES
                      <i class="right fas fa-angle-left"></i>
@@ -128,9 +127,9 @@
 
 
 
-            <li class="nav-item">
+            <li class="nav-item mt-2">
                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="fa fa-book" aria-hidden="true"></i>
                   <p>
                      GRADOS
                      <i class="right fas fa-angle-left"></i>
@@ -169,9 +168,9 @@
 
 
 
-            <li class="nav-item">
+            <li class="nav-item mt-2">
                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="fa fa-tasks" aria-hidden="true"></i>
                   <p>
                      CURSOS
                      <i class="right fas fa-angle-left"></i>
@@ -193,7 +192,7 @@
                </ul>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item mt-2">
                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>

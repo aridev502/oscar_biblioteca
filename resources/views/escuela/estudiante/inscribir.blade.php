@@ -84,7 +84,7 @@
 <script>
    new SlimSelect({
       select: '#grado',
-      placeholder: 'SELECCIONES PROFESOR',
+      placeholder: 'SELECCIONE GRADO',
       deselectLabel: '<span>&times;</span>',
       hideSelectedOption: true,
    });

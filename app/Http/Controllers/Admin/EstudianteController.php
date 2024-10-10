@@ -39,11 +39,8 @@ class EstudianteController extends Controller
                         $te->save();
                     }
                 }
-
-
             }
         }
-
 
         return back()->with(['info' => 'estudiante guardado']);
     }
@@ -54,8 +51,8 @@ class EstudianteController extends Controller
     }
     public function show($id)
     {
-        $g = Estudiante::find($id);
-        return view('admin.estudiante.show', compact('g'));
+        $estudiante = Estudiante::find($id);
+        return view('admin.estudiante.show', compact('estudiante'));
     }
     public function delete($id)
     {

@@ -40,7 +40,9 @@
                                     <td>{{$d->cui}}</td>
                                     <td>{{$d->telefono}}</td>
                                     <td>{{$d->grado->nombre}}, Seccio: {{$d->grado->seccion}}</td>
-                                    <td></td>
+                                    <td>
+                                        <a class="btn btn-primary" href="{{route('estu.show', $d->id)}}"> <i class="fa fa-edit" aria-hidden="true"></i> VER</a>
+                                    </td>
                                 </tr>
                                 @endforeach
 
