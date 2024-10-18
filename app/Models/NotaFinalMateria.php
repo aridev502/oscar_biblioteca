@@ -10,5 +10,5 @@ class NotaFinalMateria extends Model
     use HasFactory;
     public $guarded = [];
 
-    protected $table = 'libros';
+    protected $table = 'nota_final_tarea';
 }

@@ -35,7 +35,7 @@ class MateriaGradoController extends Controller
         $nota1->grado_id = $materia->grado_id;
         $nota1->materia_id = $materia->id;
         $nota1->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota1->valor = 0;
+        $nota1->valor = 100;
         $nota1->bloque = 1;
         $nota1->estado = 'activo';
         $nota1->save();
@@ -45,7 +45,7 @@ class MateriaGradoController extends Controller
         $nota2->grado_id = $materia->grado_id;
         $nota2->materia_id = $materia->id;
         $nota2->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota2->valor = 0;
+        $nota2->valor = 100;
         $nota2->bloque = 2;
         $nota2->estado = 'activo';
         $nota2->save();
@@ -55,7 +55,7 @@ class MateriaGradoController extends Controller
         $nota3->grado_id = $materia->grado_id;
         $nota3->materia_id = $materia->id;
         $nota3->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota3->valor = 0;
+        $nota3->valor = 100;
         $nota3->bloque = 3;
         $nota3->estado = 'activo';
         $nota3->save();
@@ -65,7 +65,7 @@ class MateriaGradoController extends Controller
         $nota4->grado_id = $materia->grado_id;
         $nota4->materia_id = $materia->id;
         $nota4->nombre = 'NOTA FINAL DE BIMESTRE';
-        $nota4->valor = 0;
+        $nota4->valor = 100;
         $nota4->bloque = 4;
         $nota4->estado = 'activo';
         $nota4->save();
@@ -75,6 +75,7 @@ class MateriaGradoController extends Controller
             NotaEstudiente::create([
                 'estudiante_id' => $es->id,
                 'nota_final_id' => $nota1->id,
+                'curso_id' => $materia->id,
                 'calificacion' => 0
             ]);
         }
@@ -83,6 +84,8 @@ class MateriaGradoController extends Controller
             NotaEstudiente::create([
                 'estudiante_id' => $es->id,
                 'nota_final_id' => $nota2->id,
+                'curso_id' => $materia->id,
+
                 'calificacion' => 0
             ]);
         }
@@ -91,6 +94,8 @@ class MateriaGradoController extends Controller
             NotaEstudiente::create([
                 'estudiante_id' => $es->id,
                 'nota_final_id' => $nota3->id,
+                'curso_id' => $materia->id,
+
                 'calificacion' => 0
             ]);
         }
@@ -99,6 +104,8 @@ class MateriaGradoController extends Controller
             NotaEstudiente::create([
                 'estudiante_id' => $es->id,
                 'nota_final_id' => $nota4->id,
+                'curso_id' => $materia->id,
+
                 'calificacion' => 0
             ]);
         }
@@ -115,13 +122,27 @@ class MateriaGradoController extends Controller
     public function show($id)
     {
         $data = MateriaGrado::find($id);
+
         $grado = Grado::all();
         $notas = NotaFinalMateria::where('materia_id', $id)->get();
-        return view('escuela.materia.show', compact('data', 'grado', 'notas'));
+
+        $estu = Estudiante::where('grado_id', $data->grado_id)->get();
+        return view('escuela.materia.show', compact('data', 'grado', 'notas', 'estu'));
     }
     public function delete($id)
     {
         $g = MateriaGrado::find($id)->delete();
         return back()->with(['info' => 'materia eliminado']);
+    }
+
+
+    function updateNota(Request $request)
+    {
+
+        $d = NotaEstudiente::find($request->tarea_id);
+        $d->calificacion = $request->calificacion;
+        $d->save();
+
+        return back()->with(['info' => 'datos guardados con exit', 'color' => 'success']);
     }
 }

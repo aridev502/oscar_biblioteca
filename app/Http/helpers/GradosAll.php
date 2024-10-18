@@ -2,6 +2,7 @@
 
 use App\Models\Grado;
 use App\Models\MateriaGrado;
+use App\Models\NotaEstudiente;
 use App\Models\NotaFinalMateria;
 use App\Models\ProfesoGrado;
 
@@ -36,4 +37,22 @@ function getAllCursorsToGrado($grado_id)
 {
 
    return MateriaGrado::where('grado_id', $grado_id)->get();
+}
+
+
+
+function getNotaFinalMaterias($curso, $estudiante_id): \Illuminate\Database\Eloquent\Collection
+{
+   return NotaEstudiente::where('curso_id', $curso)->where('estudiante_id', $estudiante_id)->get();
+}
+
+
+function getNotaFinalMateriasAndBloque($curso, $estudiante_id, $bloque)
+{
+   return NotaEstudiente::where('curso_id', $curso)
+      ->where('estudiante_id', $estudiante_id)
+      ->join('nota_final_tarea', 'nota_estudientes.id', '=', 'nota_final_tarea.id')
+      ->select('nota_estudientes.*',  'nota_final_tarea.nombre as nombre_materia', 'nota_final_tarea.bloque as bloque')
+      ->where('nota_final_tarea.bloque', $bloque)
+      ->first();
 }

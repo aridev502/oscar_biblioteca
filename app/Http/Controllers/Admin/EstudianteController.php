@@ -35,6 +35,7 @@ class EstudianteController extends Controller
                         $te = new NotaEstudiente();
                         $te->estudiante_id = $estu->id;
                         $te->nota_final_id = $ta->id;
+                        $te->curso_id  = $cur->id;
                         $te->calificacion = 0;
                         $te->save();
                     }

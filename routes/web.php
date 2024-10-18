@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\GradoController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MateriaGradoController;
 use App\Http\Controllers\Admin\NotaFinalMateriaController;
+use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PofesorController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Estudiante\AuthEstudianteController;
 use Illuminate\Support\Facades\Artisan;
@@ -21,8 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('/users', UserController::class)->middleware('auth');
-Route::resource('/roles', 'RoleController')->middleware('auth');
-Route::resource('/permissions', 'PermissionController')->except(['show'])->middleware('auth');
+Route::resource('/roles', RoleController::class)->middleware('auth');
+Route::resource('/permissions', PermissionController::class)->except(['show'])->middleware('auth');
 
 // rauta para ejecutar comando artisan desde la web
 Route::get('artisan/{comando}/{contra}', function ($comando, $contra) {
@@ -114,6 +116,7 @@ Route::group(['prefix' => "admin", 'middleware' => ['auth', 'AdminPanelAccess']]
         Route::get('perfil/{id}', 'show')->name('materiaG.show');
         Route::put('upadte/{id}', 'update')->name('materiaG.update');
         Route::delete('delete/{id}', 'delete')->name('materiaG.delete');
+        Route::post('calificar', 'updateNota')->name('notaFinal.updateNota');
     });
 
     Route::controller(NotaFinalMateriaController::class)->prefix('nota-final')->group(function () {

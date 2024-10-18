@@ -24,6 +24,7 @@ class NotaFinalMateriaController extends Controller
             NotaEstudiente::create([
                 'estudiante_id' => $es->id,
                 'nota_final_id' => $tarea->id,
+                'curso_id' => $request->materia_id,
                 'calificacion' => 0
             ]);
         }

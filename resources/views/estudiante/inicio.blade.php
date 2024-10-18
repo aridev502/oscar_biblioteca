@@ -18,23 +18,24 @@
 </div>
 
 <div class="row justify-content-center mt-3">
-    <div class="col-md-4">
+
+    @foreach ($cursos as $c)
+    <div class="col-md-3">
         <div class="card">
 
             <div class="card-body">
-                <h4 class="card-title">CURSOS REGISTRADOS</h4>
+                <h4 class="card-title">{{$c->nombre }}</h4>
 
-                <ul class="list-group">
-                    @foreach ($cursos as $c)
-                    <li class="list-group-item">{{ $c->nombre }}</li>
-                    @endforeach
-
-                </ul>
+                @foreach (getNotaFinalMaterias($c->id, session('estudiante')->id ) as $m)
+                <p>{{$m->tarea->nombre }} {{$m->tarea->bloque}}: {{$m->calificacion}} Pts</p>
+                @endforeach
 
 
             </div>
         </div>
     </div>
+    @endforeach
+
 </div>
 
 @endsection

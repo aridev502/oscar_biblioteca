@@ -7,7 +7,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #ffff00;
+        }
 
+        /* .global-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+        } */
+
+        form {
+            padding-top: 10px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .card-title {
+            font-weight: 300;
+        }
+
+        .btn {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+
+        .login-form {
+            width: 330px;
+            margin: 20px;
+        }
+
+        .sign-up {
+            text-align: center;
+            padding: 20px 0 0;
+        }
+
+        .alert {
+            margin-bottom: -30px;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,34 +72,46 @@
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
             <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <h2 class="text-center">LOGIN DE ADMINISTRACION</h2>
-                    <form id="form-login" method="POST" action="{{ route('login') }}">
-                        @csrf
+                <div class="col-md-3 mt-5">
 
-                        <div class="form-element form-stack">
-                            <label for="email" class="form-label">CORREO</label>
-                            <input class="form-control" id="email" type="email" name="email">
+                    <div class="global-container">
+                        <div class="card login-form">
+                            <div class="card-body text-center">
+                                <div class="card-text">
+                                    <img src="{{asset('logos/logo.png')}}" alt="" style="width: 50%;">
+                                    <h2 class="text-center">LOGIN DE ADMINISTRACION</h2>
+                                    <form id="form-login" method="POST" action="{{ route('login') }}">
+                                        @csrf
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                                        <div class="form-element form-stack">
+                                            <label for="email" class="form-label">CORREO</label>
+                                            <input class="form-control" id="email" type="email" name="email">
+
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-element form-stack">
+                                            <label for="password-signup" class="form-label">CONTRASENA</label>
+                                            <input class="form-control" id="password-signup" type="password" name="password">
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-element form-submit">
+                                            <button id="goLeft" class="btn btn-info mt-2" type="submit">INICIAR SESION</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-element form-stack">
-                            <label for="password-signup" class="form-label">CONTRASENA</label>
-                            <input class="form-control" id="password-signup" type="password" name="password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="form-element form-submit">
-                            <button id="goLeft" class="btn btn-info mt-2" type="submit">INICIAR SESION</button>
-                        </div>
-                    </form>
+                    </div>
+
+
                 </div>
             </div>
 
@@ -64,24 +122,28 @@
 
 
             <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <h2 class="text-center">ESTUDIANTE</h2>
-                    <form id="form-login" method="POST" action="{{ route('estudiante.authenticate') }}">
-                        @csrf
-                        <div class="form-element form-stack">
-                            <label for="email" class="form-label">CUI</label>
-                            <input class="form-control" id="email" type="text" name="cui">
+                <div class="col-md-3 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="text-center">ESTUDIANTE</h2>
+                            <form id="form-login" method="POST" action="{{ route('estudiante.authenticate') }}">
+                                @csrf
+                                <div class="form-element form-stack">
+                                    <label for="email" class="form-label">CUI</label>
+                                    <input class="form-control" id="email" type="text" name="cui">
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="form-element form-submit mt-4">
+                                    <button id="goLeft" class="btn btn-info mt-2" type="submit">INICIAR SESION</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-element form-submit">
-                            <button id="goLeft" class="btn btn-info mt-2" type="submit">INICIAR SESION</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 

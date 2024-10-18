@@ -25,11 +25,26 @@
                         <button class="nav-link" id="v-pills-NOTASASIG-tab" data-toggle="pill" data-target="#v-pills-NOTASASIG" type="button" role="tab" aria-controls="v-pills-NOTASASIG" aria-selected="false">TAREAS REGISTRADAS</button>
 
 
+                        <button class="nav-link" id="v-pills-calificar-tab" data-toggle="pill" data-target="#v-pills-calificar" type="button" role="tab" aria-controls="v-pills-calificar" aria-selected="false">CALIFICAR</button>
+
+
 
                      </div>
                   </div>
                   <div class="col-9">
                      <div class="tab-content" id="v-pills-tabContent">
+
+
+                        <div class="tab-pane fade" id="v-pills-calificar" role="tabpanel" aria-labelledby="v-pills-calificar-tab">
+
+
+                           @include('escuela.materia.calificar')
+
+                        </div>
+
+
+
+
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
                            <form action="{{route('materiaG.update', $data->id)}}" method="post" enctype="multipart/form-data">
@@ -61,8 +76,6 @@
                            @include('escuela.materia.formregistrotareagrado')
 
                         </div>
-
-
                         <div class="tab-pane fade" id="v-pills-NOTASASIG" role="tabpanel" aria-labelledby="v-pills-NOTASASIG-tab">
 
                            <div class="list-group">

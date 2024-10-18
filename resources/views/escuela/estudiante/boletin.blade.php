@@ -15,55 +15,47 @@
       </div>
    </div>
 
-   <div class="row justify-content-center mt-4">
-      <div class="col-md-5">
+   <div class="row ">
+      <div class="col-md-12">
 
-         <div class="row">
-            <div class="col-md-6" style="border: 1px solid black;">C.E.F</div>
-            <div class="col-md-6" style="border: 1px solid black;">BIMESTRE</div>
-         </div>
+
 
          <table class="table">
             <thead>
                <tr>
-                  <th style="border: 1px solid black;">No.</th>
-                  <th style="border: 1px solid black;">ASIGNATURA</th>
-                  <th style="border: 1px solid black;">1</th>
-                  <th style="border: 1px solid black;">2</th>
-                  <th style="border: 1px solid black;">3</th>
-                  <th style="border: 1px solid black;">4</th>
-                  <th style="border: 1px solid black;">PROM.FIANL</th>
+                  <th style="border: 1px solid black;">MATERIA</th>
+                  <th style="border: 1px solid black;">B. 1</th>
+                  <th style="border: 1px solid black;">B. 2</th>
+                  <th style="border: 1px solid black;">B. 3</th>
+                  <th style="border: 1px solid black;">B. 4</th>
+                  <th style="border: 1px solid black;">PROMEDIO</th>
                </tr>
             </thead>
             <tbody>
-               @php
-               $prome = 0;
-               @endphp
-               @foreach ($new_Array as $m)
-               <tr>
-                  <td style="border: 1px solid black;">{{$no}}</td>
-                  <td style="border: 1px solid black;">{{$m[0]}}</td>
-                  <td style="border: 1px solid black;">{{$m[1]}}</td>
-                  <td style="border: 1px solid black;">{{$m[2]}}</td>
-                  <td style="border: 1px solid black;">{{$m[3]}}</td>
-                  <td style="border: 1px solid black;">{{$m[4]}}</td>
-                  <td style="border: 1px solid black;">
-                     @php
-                     $prome += ($m[1] + $m[2] + $m[3] + $m[4]) / 4;
-                     @endphp
-                     {{number_format($prome, 2)}}
-                  </td>
-               </tr>
-               <?php $no++;
-               $prome = 0 ?>
-               @endforeach
+               @foreach ($cursos as $c)
 
+               <?php
+               $b1 = getNotaFinalMateriasAndBloque($c->id, $estudiante->id, 1)->calificacion;
+               $b2 = getNotaFinalMateriasAndBloque($c->id, $estudiante->id, 2)->calificacion;
+               $b3 = getNotaFinalMateriasAndBloque($c->id, $estudiante->id, 3)->calificacion;
+               $b4 = getNotaFinalMateriasAndBloque($c->id, $estudiante->id, 4)->calificacion;
+               ?>
+               <tr>
+                  <td>{{$c->nombre}}</td>
+                  <td> {{$b1}}</td>
+                  <td> {{$b2}}</td>
+                  <td> {{$b3}}</td>
+                  <td> {{$b4}}</td>
+                  <td> {{ ($b1 + $b2 + $b3 + $b4) / 4 }} </td>
+               </tr>
+               @endforeach
             </tbody>
          </table>
 
 
+
          <p class="text-center mt-5">
-            F. ___________________________________________________ <br> 
+            F. ___________________________________________________ <br>
             Padre de Familia
          </p>
 
